@@ -1,0 +1,2 @@
+class OlympicDatum < ApplicationRecord
+end
