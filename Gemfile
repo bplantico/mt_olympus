@@ -31,6 +31,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'simplecov'
   gem 'table_print'
+  gem 'pry'
 end
 
 group :development do
