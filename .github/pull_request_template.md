@@ -4,9 +4,9 @@
 
 ## Description of Implementation/Fix:
 
-## Necessary checkmarks:
-- [ ] All Tests are Passing
-- [ ] The code will run locally
+## What did you struggle on?
+
+## What resources helped?
 
 ## Did this break anything?
 - [ ] This broke nothing
@@ -19,6 +19,7 @@
 - [ ] I have reviewed my code
 - [ ] I have commented my code, particularly in hard-to-understand areas
 - [ ] My code has no unused/commented out code
+- [ ] My code runs locally
 
 ## Testing:
 - Overall coverage:
