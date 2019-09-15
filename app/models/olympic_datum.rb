@@ -1,7 +1,7 @@
 class OlympicDatum < ApplicationRecord
   validates :name, presence: true
   validates :sex, presence: true
-  validates :age, presence: true, numericality: { only_integer: true, greater_than_or_equal_to: 15 }
+  validates :age, presence: true, numericality: { only_integer: true }
   validates :height, presence: true
   validates :weight, presence: true
   validates :team, presence: true
