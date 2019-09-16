@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :event do
-    event { "MyString" }
-    sport { "MyString" }
-    games { "MyString" }
+    sequence(:event) { |n| "Event #{n}" }
+    sequence(:sport) { |n| "Sport #{n}" }
+    games { "2016 Summer" }
   end
 end
