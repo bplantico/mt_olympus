@@ -2,6 +2,7 @@ class Olympian < ApplicationRecord
 
   # relationships
   has_many :olympian_events
+  has_many :events, through: :olympian_events
 
   # validations
   validates :name, presence: true, uniqueness: true
