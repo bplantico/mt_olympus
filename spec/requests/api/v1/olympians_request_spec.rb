@@ -57,12 +57,12 @@ describe "Olympians endpoints" do
   it "returns the youngest olympian" do
     get "/api/v1/olympians?age=oldest"
 
-  expect(response).to have_http_status(200)
-  data = JSON.parse(response.body, symbolize_names: true)
+    expect(response).to have_http_status(200)
+    data = JSON.parse(response.body, symbolize_names: true)
 
-  expect(data.keys).to eq([:olympian])
-  expect(data.count).to eq(1)
-  expect(data[:olympian].keys).to eq([:name, :team, :age, :sport, :total_medals_won])
-  expect(data[:olympian][:name]).to eq(@olympian_5.name)
+    expect(data.keys).to eq([:olympian])
+    expect(data.count).to eq(1)
+    expect(data[:olympian].keys).to eq([:name, :team, :age, :sport, :total_medals_won])
+    expect(data[:olympian][:name]).to eq(@olympian_5.name)
   end
 end
