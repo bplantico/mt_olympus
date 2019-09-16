@@ -1,5 +1,7 @@
 class Api::V1::OlympiansController < ApplicationController
+
   def index
-    # require "pry"; binding.pry
+    render json: OlympianSerializer.new(Olympian.limit(25)).serialize
   end
+
 end
