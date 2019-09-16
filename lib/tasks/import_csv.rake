@@ -14,13 +14,18 @@ namespace :import_csv do
       CSV.foreach('./data/olympic_data_2016.csv', headers: true) do |row|
         hash = row.to_hash
         olympian_hash = {}
+        event_hash = {}
         hash.each_pair do |key, value|
           if Olympian.has_attribute?(key)
             olympian_hash[key] = value
+          elsif Event.has_attribute?(key)
+            event_hash[key] = value
           end
         end
         Olympian.create(olympian_hash)
+        Event.create(event_hash)
       end
-      puts "Added #{Olympian.all.count} olympians to the olympians table in the database."
+      puts "Added #{Olympian.count} olympians to the olympians table in the database."
+      puts "Added #{Event.count} events to the events table in the database."
     end
 end
