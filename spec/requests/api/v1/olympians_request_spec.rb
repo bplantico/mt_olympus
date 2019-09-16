@@ -1,6 +1,9 @@
 require 'rails_helper'
 
 describe "Olympians endpoints" do
+  before :each do
+    olympians = create_list(:olympian, 50)
+  end
 
   it "sends a list of olympians" do
     get "/api/v1/olympians"

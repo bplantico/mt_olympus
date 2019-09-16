@@ -1,10 +1,10 @@
 FactoryBot.define do
   factory :olympian do
-    name { "MyString" }
-    sex { "MyString" }
-    age { 1 }
-    height { 1 }
-    weight { 1 }
-    team { "MyString" }
+    sequence(:name) { |n| "Olympian #{n}" }
+    sex { ["M", "F"].sample }
+    sequence(:age) { |n|10 + n }
+    sequence(:height) { |n| 100 + n }
+    sequence(:weight) { |n| 100 + n }
+    team { ["GER", "USA", "RUS", "AUS", "POL"].sample }
   end
 end
