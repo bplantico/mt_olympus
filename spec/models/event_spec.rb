@@ -10,5 +10,6 @@ RSpec.describe Event, type: :model do
 
   describe "relationships" do
     it { should have_many :olympian_events }
+    it { should have_many :olympians }
   end
 end
