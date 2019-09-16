@@ -22,4 +22,8 @@ class Olympian < ApplicationRecord
     Olympian.order(:age).take
   end
 
+  def self.oldest
+    Olympian.order(age: :desc).take
+  end
+
 end

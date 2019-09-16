@@ -63,11 +63,15 @@ RSpec.describe Olympian, type: :model do
       @olympian_2 = create(:olympian, age: 2)
       @olympian_3 = create(:olympian, age: 5)
       @olympian_4 = create(:olympian, age: 1)
-      @olympian_5 = create(:olympian, age: 5)
+      @olympian_5 = create(:olympian, age: 4)
     end
 
     it "returns the youngest olympian" do
       expect(Olympian.youngest).to eq(@olympian_1)
+    end
+
+    it "returns the oldest olympian" do
+      expect(Olympian.oldest).to eq(@olympian_3)
     end
   end
 
