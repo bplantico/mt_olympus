@@ -1,17 +1,5 @@
 class OlympianSerializer
 
-  # include FastJsonapi::ObjectSerializer
-  #
-  # attributes :name, :team, :age
-  #
-  # attribute :sport do |olympian|
-  #   olympian.events[0].sport
-  # end
-  #
-  # attribute :total_medals_won do |olympian|
-  #   olympian.total_medals_won
-  # end
-
   def initialize(olympians)
     @olympians = olympians
   end
@@ -32,4 +20,17 @@ class OlympianSerializer
 
     olympian_object
   end
+
+  # include FastJsonapi::ObjectSerializer
+  #
+  # attributes :name, :team, :age
+  #
+  # attribute :sport do |olympian|
+  #   olympian.events[0].sport
+  # end
+  #
+  # attribute :total_medals_won do |olympian|
+  #   olympian.total_medals_won
+  # end
+
 end
