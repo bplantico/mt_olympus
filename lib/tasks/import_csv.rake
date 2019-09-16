@@ -15,6 +15,7 @@ namespace :import_csv do
         hash = row.to_hash
         olympian_hash = {}
         event_hash = {}
+        
         hash.each_pair do |key, value|
           if Olympian.has_attribute?(key)
             olympian_hash[key] = value
@@ -22,6 +23,7 @@ namespace :import_csv do
             event_hash[key] = value
           end
         end
+
         olympian = Olympian.find_or_create_by(olympian_hash)
         event = Event.find_or_create_by(event_hash)
         OlympianEvent.create(olympian_id: olympian.id, event_id: event.id, medal: hash["medal"])
