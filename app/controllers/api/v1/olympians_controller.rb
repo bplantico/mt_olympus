@@ -5,6 +5,8 @@ class Api::V1::OlympiansController < ApplicationController
       render json: OlympiansSerializer.new(Olympian.limit(25)).serialize
     elsif olympian_params[:age] == "youngest"
       render json: OlympianSerializer.new(Olympian.youngest).serialize
+    elsif olympian_params[:age] == "oldest"
+      render json: OlympianSerializer.new(Olympian.oldest).serialize
     end
   end
 

@@ -2,11 +2,11 @@ require 'rails_helper'
 
 describe "Olympians endpoints" do
   before :each do
-    @olympian_1 = create(:olympian)
-    @olympian_2 = create(:olympian)
-    @olympian_3 = create(:olympian)
-    @olympian_4 = create(:olympian)
-    @olympian_5 = create(:olympian)
+    @olympian_1 = create(:olympian, age: 1)
+    @olympian_2 = create(:olympian, age: 2)
+    @olympian_3 = create(:olympian, age: 3)
+    @olympian_4 = create(:olympian, age: 4)
+    @olympian_5 = create(:olympian, age: 5)
 
     @event_1 = create(:event)
     @event_2 = create(:event)
@@ -51,5 +51,18 @@ describe "Olympians endpoints" do
   expect(data.keys).to eq([:olympian])
   expect(data.count).to eq(1)
   expect(data[:olympian].keys).to eq([:name, :team, :age, :sport, :total_medals_won])
+  expect(data[:olympian][:name]).to eq(@olympian_1.name)
+  end
+
+  it "returns the youngest olympian" do
+    get "/api/v1/olympians?age=oldest"
+
+  expect(response).to have_http_status(200)
+  data = JSON.parse(response.body, symbolize_names: true)
+
+  expect(data.keys).to eq([:olympian])
+  expect(data.count).to eq(1)
+  expect(data[:olympian].keys).to eq([:name, :team, :age, :sport, :total_medals_won])
+  expect(data[:olympian][:name]).to eq(@olympian_5.name)
   end
 end
