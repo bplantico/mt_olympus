@@ -16,5 +16,10 @@ class Olympian < ApplicationRecord
   def total_medals_won
     OlympianEvent.where(olympian_id: id, medal: ["Gold","Silver","Bronze"]).count
   end
-  
+
+  # class methods
+  def self.youngest
+    Olympian.order(:age).take
+  end
+
 end

@@ -28,10 +28,6 @@ RSpec.describe Olympian, type: :model do
       @event_2 = create(:event)
       @event_3 = create(:event)
 
-      # olympian_1 medals = 1
-      # olympian_2 medals = 2
-      # olympian_3 medals = 3
-      # olympians 4 and 5 have 0 medals
 
       @olympian_event_1_1 = create(:olympian_event, olympian: @olympian_1, event: @event_1, medal: "Gold" )
       @olympian_event_2_1 = create(:olympian_event, olympian: @olympian_2, event: @event_1, medal: "Silver" )
@@ -51,6 +47,7 @@ RSpec.describe Olympian, type: :model do
       @olympian_event_4_2 = create(:olympian_event, olympian: @olympian_4, event: @event_3, medal: "NA" )
       @olympian_event_4_2 = create(:olympian_event, olympian: @olympian_5, event: @event_3, medal: "NA" )
     end
+
     it "knows its total_medals_won" do
       expect(@olympian_1.total_medals_won).to eq(1)
       expect(@olympian_2.total_medals_won).to eq(2)
@@ -59,4 +56,19 @@ RSpec.describe Olympian, type: :model do
       expect(@olympian_5.total_medals_won).to eq(0)
     end
   end
+
+  describe  "class methods" do
+    before :each do
+      @olympian_1 = create(:olympian, age: 1)
+      @olympian_2 = create(:olympian, age: 2)
+      @olympian_3 = create(:olympian, age: 5)
+      @olympian_4 = create(:olympian, age: 1)
+      @olympian_5 = create(:olympian, age: 5)
+    end
+
+    it "returns the youngest olympian" do
+      expect(Olympian.youngest).to eq(@olympian_1)
+    end
+  end
+
 end
