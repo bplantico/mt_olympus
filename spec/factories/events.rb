@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :event do
-    name { "MyString" }
+    event { "MyString" }
     sport { "MyString" }
     games { "MyString" }
   end
