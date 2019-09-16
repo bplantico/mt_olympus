@@ -1,36 +1,20 @@
 class OlympianSerializer
 
-  def initialize(olympians)
-    @olympians = olympians
+  def initialize(olympian)
+    @olympian = olympian
   end
 
   def serialize
-    olympian_object = { "olympians": [] }
+    output = { "olympian": [] }
 
-    @olympians.each do |olympian|
-      olympian_object[:olympians] <<
-      {
-        "name": olympian.name,
-        "team": olympian.team,
-        "age": olympian.age,
-        "sport": olympian.events[0].sport,
-        "total_medals_won": olympian.total_medals_won
-      }
-    end
-
-    olympian_object
+    output[:olympian] =
+    {
+      "name": @olympian.name,
+      "team": @olympian.team,
+      "age": @olympian.age,
+      "sport": @olympian.events[0].sport,
+      "total_medals_won": @olympian.total_medals_won
+    }
+    output
   end
-
-  # include FastJsonapi::ObjectSerializer
-  #
-  # attributes :name, :team, :age
-  #
-  # attribute :sport do |olympian|
-  #   olympian.events[0].sport
-  # end
-  #
-  # attribute :total_medals_won do |olympian|
-  #   olympian.total_medals_won
-  # end
-
 end
