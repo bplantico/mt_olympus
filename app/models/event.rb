@@ -11,7 +11,8 @@ class Event < ApplicationRecord
 
   # instance methods
   def medalists
-    Olympian.joins(:olympian_events)
+    Olympian.select('olympians.*, olympian_events.medal')
+            .joins(:olympian_events)
             .where("olympian_events.event_id = ? AND medal != ?", id, "NA")
   end
 
