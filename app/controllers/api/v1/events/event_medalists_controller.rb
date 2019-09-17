@@ -9,6 +9,4 @@ class Api::V1::Events::EventMedalistsController < ApplicationController
   def event_params
     params.permit(:id)
   end
-
-
 end
