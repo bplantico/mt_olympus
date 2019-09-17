@@ -12,8 +12,7 @@
        output[:events] <<
         {
           "sport": sport,
-          "events": Event.select(:event)
-                         .where(sport: sport)
+          "events": Event.where(sport: sport)
                          .pluck(:event)
         }
      end
