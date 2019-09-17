@@ -4,6 +4,7 @@ MT OLYMPUS
 ### Request Endpoints
 + [Olympians](#olympians)
 + [Olympian Stats](#olympian_stats)
++ [Events](#events)
 
 ### <a name="olympians"></a>Olympians Request
 `https://mt-olympus.herokuapp.com/api/v1/olympians`
@@ -83,5 +84,61 @@ body:
           },
         "average_age": "26.37"
     }
+}
+```
+
+### <a name="events"></a>Events Request
+`https://mt-olympus.herokuapp.com/api/v1/events`
+
+HTTP verbs accepted: `GET`
+
+The events endpoint receives a GET request and returns a JSON formatted object containing all of the sports with each sport's accompanying events.
+
+An example of a successful request:
+```
+GET https://mt-olympus.herokuapp.com//api/v1/events
+Content-Type: application/json
+Accept: application/json
+```
+Successful response:
+```
+status: 200 OK
+body:
+
+{
+  "events":
+  [
+    {
+      "sport": "Archery",
+      "events":
+        [
+          "Archery Women's Individual",
+          "Archery Women's Team",
+          "Archery Men's Individual",
+          "Archery Men's Team"
+        ]
+    },
+    {
+      "sport": "Gymnastics",
+      "events":
+        [
+          "Gymnastics Men's Individual All-Around",
+          "Gymnastics Men's Floor Exercise",
+          "Gymnastics Men's Parallel Bars",
+          "Gymnastics Men's Horizontal Bar",
+          "Gymnastics Men's Rings",
+          "Gymnastics Men's Pommelled Horse",
+          "Gymnastics Men's Team All-Around",
+          "Gymnastics Men's Horse Vault",
+          "Gymnastics Women's Team All-Around",
+          "Gymnastics Women's Uneven Bars",
+          "Gymnastics Women's Balance Beam",
+          "Gymnastics Women's Individual All-Around",
+          "Gymnastics Women's Floor Exercise",
+          "Gymnastics Women's Horse Vault"
+        ]
+    },
+    {...}
+  ]
 }
 ```
