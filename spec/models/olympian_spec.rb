@@ -59,11 +59,12 @@ RSpec.describe Olympian, type: :model do
 
   describe  "class methods" do
     before :each do
-      @olympian_1 = create(:olympian, age: 1)
-      @olympian_2 = create(:olympian, age: 2)
-      @olympian_3 = create(:olympian, age: 5)
-      @olympian_4 = create(:olympian, age: 1)
-      @olympian_5 = create(:olympian, age: 4)
+      @olympian_1 = create(:olympian, age: 1, weight: 1, sex: "F")
+      @olympian_2 = create(:olympian, age: 2, weight: 2, sex: "F")
+      @olympian_3 = create(:olympian, age: 3, weight: 3, sex: "F")
+      @olympian_4 = create(:olympian, age: 4, weight: 4, sex: "M")
+      @olympian_5 = create(:olympian, age: 5, weight: 5, sex: "M")
+      @olympian_6 = create(:olympian, age: 6, weight: 6, sex: "M")
     end
 
     it "returns the youngest olympian" do
@@ -71,8 +72,17 @@ RSpec.describe Olympian, type: :model do
     end
 
     it "returns the oldest olympian" do
-      expect(Olympian.oldest).to eq(@olympian_3)
+      expect(Olympian.oldest).to eq(@olympian_6)
+    end
+
+    it "returns the average weight" do
+      expect(Olympian.average_weight("males")).to eq(5)
+      expect(Olympian.average_weight("females")).to eq(2)
+      expect(Olympian.average_weight).to eq(3.5)
+    end
+
+    it "returns the average age" do
+      expect(Olympian.average_age).to eq(3.5)
     end
   end
-
 end

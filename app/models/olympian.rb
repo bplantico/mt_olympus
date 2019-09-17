@@ -26,4 +26,18 @@ class Olympian < ApplicationRecord
     Olympian.order(age: :desc).take
   end
 
+  def self.average_weight(sex = nil)
+    if sex == "males"
+      Olympian.where(sex: "M").average(:weight)
+    elsif sex == "females"
+      Olympian.where(sex: "F").average(:weight)
+    else
+      Olympian.average(:weight)
+    end
+  end
+
+  def self.average_age
+    Olympian.average(:age)
+  end
+
 end
