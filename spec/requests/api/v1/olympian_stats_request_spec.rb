@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe "Olympians endpoints" do
+describe "olympian_stats endpoint" do
   before :each do
     @olympian_1 = create(:olympian, age: 1, weight: 1, sex: "F")
     @olympian_2 = create(:olympian, age: 2, weight: 2, sex: "F")
