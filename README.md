@@ -91,10 +91,11 @@ body:
 `https://mt-olympus.herokuapp.com/api/v1/events`
 
 HTTP verbs accepted: `GET`
+Variants accepted: `/:id/medalists`
 
-The events endpoint receives a GET request and returns a JSON formatted object containing all of the sports with each sport's accompanying events.
+The events endpoint receives a GET request and returns a JSON formatted object containing all of the sports with each sport's accompanying events. The events endpoint can also receive an event ID along with `/medalists` in which case it will respond with the medalists for that specific event.
 
-An example of a successful request:
+An example of a successful request (without an ID and `/medalists`):
 ```
 GET https://mt-olympus.herokuapp.com//api/v1/events
 Content-Type: application/json
@@ -140,5 +141,41 @@ body:
     },
     {...}
   ]
+}
+```
+An example of a successful request with an event ID and `/medalists`:
+```
+GET https://mt-olympus.herokuapp.com//api/v1/events/100/medalists
+Content-Type: application/json
+Accept: application/json
+```
+An example of a successful response:
+```
+status: 200 OK
+body:
+
+{
+  "event": "Rhythmic Gymnastics Women's Group",
+  "medalists":
+    [
+      {
+          "name": "Sandra Aguilar Navarro",
+          "team": "Spain",
+          "age": 23,
+          "medal": "Silver"
+      },
+      {
+          "name": "Vera Leonidovna Biryukova",
+          "team": "Russia",
+          "age": 18,
+          "medal": "Gold"
+      },
+      {
+          "name": "Anastasiya Ilyinichna Bliznyuk",
+          "team": "Russia",
+          "age": 22,
+          "medal": "Gold"
+      }
+    ]
 }
 ```
