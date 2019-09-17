@@ -1,15 +1,35 @@
-MT OLYMPUS
+# MT OLYMPUS
 
+Mt Olympus is an API that opens endpoints to return statistics and information about the 2016 Summer Olympic Games. I created all of the endpoints, documentation, and agile board with user stories for Mt Olympus in less than two days as a take home challenge during Module 4 at the Turing School of Software and Design in Denver, Colorado during the 1908 inning. While there was a 48 hour time limit on this challenge from first to last commit, I would not have been able to complete what I did on Mt Olympus without all of the 12-14+ hour days that I put in to learn these skills over the last seven months, not to mention everyone who has helped me along the way. It has been so much fun to learn this process and to be surrounded by so many intelligent and driven people at Turing.
+
+Thank you all.
+
+### About
+
+Mt Olympus is built using Ruby (version 2.6.3) along with Ruby on Rails (version 6.0.0). It utilizes a PostgreSQL database (version 11.5) for storing records and uses RSpec with ShouldaMatchers for testing. The application can run in a development environment on your local machine, and it is also deployed to Heroku. Mt Olympus was built using a Test Driven Development (TDD) approach and adheres to RESTful practices.
+
+### Configuration
+
+While this application is deployed in a production environment and you can interact with the endpoints outlined below, you can also run the codebase on your local machine by following these steps:
+1. Fork this repository, then clone it to your local machine.
+1. Open the repository in your text editor of choice.
+1. From your terminal/command line interface (CLI), run `bundle install` to install the required dependencies.
+1. From your terminal/CLI, run `bundle exec rake db:{create,migrate}` to create the database and accompanying tables.
+1. From your terminal/CLI, run `bundle exec rake import_csv:summer_olympics_2016` to import the records from the included CSV file into your new database.
+1. You should see a message confirming the number of records created and can also confirm that the database tables have been populated by using a DB interfacing tool like Postico or by running `rails console` in your CLI and running a comman like `Olympian.count`.
+1. Have fun!
 
 ### Request Endpoints
 + [Olympians](#olympians)
 + [Olympian Stats](#olympian_stats)
 + [Events](#events)
 
+The following endpoints have been created for you to access on the production application. Outlined below is the endpoint, the type of requests it takes (along with any parameters or variants it receives), and the expected response that it returns.
+
 ### <a name="olympians"></a>Olympians Request
 `https://mt-olympus.herokuapp.com/api/v1/olympians`
 
-HTTP verbs accepted: `GET`
+HTTP verbs accepted: `GET`  
 Parameters accepted: `age`
 
 The olympians endpoint receives a GET request and returns a JSON formatted object containing a list of olympians from the 2016 summer games. By default, the first 25 olympians are returned.
