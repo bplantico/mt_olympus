@@ -8,6 +8,11 @@ Thank you all.
 
 Mt Olympus is built using Ruby (version 2.6.3) along with Ruby on Rails (version 6.0.0). It utilizes a PostgreSQL database (version 11.5) for storing records and uses RSpec with ShouldaMatchers for testing. The application can run in a development environment on your local machine, and it is also deployed to Heroku. Mt Olympus was built using a Test Driven Development (TDD) approach and adheres to RESTful practices.
 
+### Schema
+The database is set up with the following schema. Currently there is a many-to-many relationship set up between olympians and events, where an olympian has many events and an event has many olympians through the olympian_events joins table (an olympian_event belongs to both an olympian and an event). While this set up works for the challenge, the data could be normalized into more tables, specifically I would like to implement `games`, `sports`, `teams`, and their accompanying joins tables (i.e. `olympian_teams`, `sport_events`, etc).
+
+![Mt Olympus database schema](https://user-images.githubusercontent.com/43261385/65053674-d4fb4880-d95b-11e9-86a2-df10e8a99c17.png "Database Schema")
+
 ### Configuration
 
 While this application is deployed in a production environment and you can interact with the endpoints outlined below, you can also run the codebase on your local machine by following these steps:
