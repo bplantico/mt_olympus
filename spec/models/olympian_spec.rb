@@ -78,6 +78,7 @@ RSpec.describe Olympian, type: :model do
     it "returns the average weight" do
       expect(Olympian.average_weight("males")).to eq(5)
       expect(Olympian.average_weight("females")).to eq(2)
+      expect(Olympian.average_weight).to eq(3.5)
     end
   end
 end
