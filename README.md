@@ -90,7 +90,7 @@ body:
 ### <a name="events"></a>Events Request
 `https://mt-olympus.herokuapp.com/api/v1/events`
 
-HTTP verbs accepted: `GET`
+HTTP verbs accepted: `GET`   
 Variants accepted: `/:id/medalists`
 
 The events endpoint receives a GET request and returns a JSON formatted object containing all of the sports with each sport's accompanying events. The events endpoint can also receive an event ID along with `/medalists` in which case it will respond with the medalists for that specific event.
