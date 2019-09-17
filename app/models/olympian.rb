@@ -36,4 +36,8 @@ class Olympian < ApplicationRecord
     end
   end
 
+  def self.average_age
+    Olympian.average(:age)
+  end
+
 end
