@@ -27,12 +27,12 @@ describe "olympian_stats endpoint" do
     @olympian_event_5_2 = create(:olympian_event, olympian: @olympian_5, event: @event_2, medal: "NA" )
     @olympian_event_6_2 = create(:olympian_event, olympian: @olympian_6, event: @event_2, medal: "NA" )
 
-    @olympian_event_1_3 create(:olympian_event, olympian: @olympian_1, event: @event_3, medal: "NA" )
-    @olympian_event_2_3 create(:olympian_event, olympian: @olympian_2, event: @event_3, medal: "NA" )
-    @olympian_event_3_3 create(:olympian_event, olympian: @olympian_3, event: @event_3, medal: "Bronze" )
-    @olympian_event_4_3 create(:olympian_event, olympian: @olympian_4, event: @event_3, medal: "NA" )
-    @olympian_event_5_3 create(:olympian_event, olympian: @olympian_5, event: @event_3, medal: "NA" )
-    @olympian_event_6_3 create(:olympian_event, olympian: @olympian_6, event: @event_3, medal: "NA" )
+    @olympian_event_1_3 = create(:olympian_event, olympian: @olympian_1, event: @event_3, medal: "NA" )
+    @olympian_event_2_3 = create(:olympian_event, olympian: @olympian_2, event: @event_3, medal: "NA" )
+    @olympian_event_3_3 = create(:olympian_event, olympian: @olympian_3, event: @event_3, medal: "Bronze" )
+    @olympian_event_4_3 = create(:olympian_event, olympian: @olympian_4, event: @event_3, medal: "NA" )
+    @olympian_event_5_3 = create(:olympian_event, olympian: @olympian_5, event: @event_3, medal: "NA" )
+    @olympian_event_6_3 = create(:olympian_event, olympian: @olympian_6, event: @event_3, medal: "NA" )
   end
 
   it "returns aggregate olypmpian statistics" do
