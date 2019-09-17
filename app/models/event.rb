@@ -8,4 +8,11 @@ class Event < ApplicationRecord
   validates :event, presence: true, uniqueness: true
   validates :sport, presence: true
   validates :games, presence: true
+
+  # instance methods
+  def medalists
+    Olympian.joins(:olympian_events)
+            .where("olympian_events.event_id = ? AND medal != ?", id, "NA")
+  end
+
 end
